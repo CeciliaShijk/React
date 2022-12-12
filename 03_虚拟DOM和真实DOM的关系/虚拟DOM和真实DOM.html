@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="test"></div>
+    <!-- 此处必须用babel而不是js -->
+    <script type="text/babel">
+        //     右侧为虚拟DOM对象 不是JS 所以不用''写为string形式 -->
+        // 1.创建一个虚拟DOM
+        let VDOM = <h1>Hello,React</h1>
+        //  2.让react将虚拟DOM-VDOM转换成真实的DOM 插入到页面 -->
+
+        ReactDOM.render(VDOM, document.getElementById('test'));
+        console.log(typeof (VDOM));//object
+    //关于虚拟DOM比较轻，真实DOM比较重，因为虚拟DOM是React在用的。
+
+    </script>
+
+
+</body>
+
+</html>

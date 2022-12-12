@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <style>
+        .test {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" "></div>
+
+    <script type="text/babel">
+        const data = 'Hello React';
+        //    1.创建虚拟DOM 
+        const VDOM = <h1 className="test" style={{color:"white",fontSize:"60px"}}>{data}</h1>
+
+        //想添加样式的类名为test
+
+        // 2.渲染虚拟DOM到页面 
+        ReactDOM.render(VDOM, document.getElementById('box'));
+
+
+    //    jsx语法规范：
+    //     1.创建虚拟DOM时，不用写引号
+    //     2.标签中要混入js表达式，要用{}
+   //       3.标签中样式的类名要用className
+//4.标签中的内敛样式要用style={{color:"white"}},属性名为小驼峰
+//5.根标签只能有一个 多个的话可以用div标签包一下
+//6.标签必须闭合 
+    </script>
+</body>
+
+</html>
