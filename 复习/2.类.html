@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/react.development.js"></script>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            speak() {
+                console.log(`我的名字是${this.name}，我的年龄是${this.age}`);
+            }
+        }
+
+        class Student extends Person {
+            constructor(name, age, position) {
+                super(name,age);
+                this.position=position;
+            }
+            speak(){
+                console.log(`我的名字叫${this.name}，我今年${this.age}，我的职业是${this.position}`);
+            }
+        }
+        const jk = new Person('zjk', 34);
+        console.log(jk);
+        jk.speak();
+        console.log('==================');
+        const dn = new Student('dn', 32, 'student')
+        console.log(dn);
+        dn.speak();
+    </script>
+</body>
+
+</html>
