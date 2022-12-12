@@ -13,7 +13,7 @@
 
 <body>
 
-    <div id="test"></div>
+    <div id="test1"></div>
     <!-- 此处必须用babel而不是js -->
     <script type="text/babel">
         //     右侧为虚拟DOM对象 不是JS 所以不用''写为string形式 -->
@@ -21,7 +21,7 @@
         let VDOM = <h1>Hello,React</h1>
         //  2.让react将虚拟DOM-VDOM转换成真实的DOM 插入到页面 -->
 
-        ReactDOM.render(VDOM, document.getElementById('test'));
+        ReactDOM.render(VDOM, document.getElementById('test1'));
         console.log(typeof (VDOM));//object
     //关于虚拟DOM比较轻，真实DOM比较重，因为虚拟DOM是React在用的。
 
