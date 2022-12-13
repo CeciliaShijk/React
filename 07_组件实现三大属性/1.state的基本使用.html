@@ -19,14 +19,19 @@
             constructor(props) {
                 super(props)
                 this.state = {isHot:false}//初始化state 并赋值为false
+                this.show=this.show.bind(this)
             }
             render(){
-
                 //绑定事件的方式
                 return <h1 onClick={this.show}>今天天气很{this.state.isHot? '炎热':'凉爽'}</h1>
             }
              show(){
             console.log('@',this);//开启严格模式，当点击时候，直接window直接调用哦show方法，不通过this。show调用方法，this指向为window
+            //1.获得当前isHot的状态值
+                console.log(this)
+            //2.取反赋值
+            let hot=this.state.isHot
+            this.setState({isHot:!hot})
         }
         }
         //2.渲染类组件到页面

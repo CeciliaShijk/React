@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class MyClass{
+            constructor(){
+                console.log('!',this);
+                console.log('%%%%%%%%%%%%%');
+                this.changeWeather=this.changeWeather.bind(this)//将原型上的changeWeather方法放到了MyClass的方法中 （内部）
+                console.log(this);
+            }
+             changeWeather() {
+                console.log('@',this);
+            }
+        }
+        var mc=new MyClass()
+        console.log(MyClass.prototype==mc.__proto__);//true 
+        //二者指向的都是内存地址 - 原型对象 因此可以将公共内容添加到原型对象中。如果每个对象自己没有，可以去原型对象中查找
+        MyClass.prototype.a=123;
+        console.log(mc.a);//123自己没有概该属性的值，则去公共区域 - 原型对象中查找
+
+        //查看该属性是否在对象中的方法
+        //1.包括查在原型中的
+        console.log('a' in mc);//true 尽管自己没有 但类的原型中有，所以为true
+        //2.查看自己对象中是否有该属性
+        console.log(mc.hasOwnProperty("a"));//false 该对象中没有
+
+        console.log('================');
+        console.log(MyClass);
+    </script>
+</body>
+</html>

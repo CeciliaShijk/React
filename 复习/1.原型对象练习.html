@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class MyClass{
+           
+            constructor(){
+                let a =1;
+                this.Method1=this.Method1.bind(this);
+            }
+            
+            Method1(){
+                console.log('@',this);
+            }
+
+        }
+        const mc=new MyClass()
+        console.log(this)//Method1中的this是MyClass类
+        
+        //本身MyClass中的Method1是在MyClass的原型中的，mc自身虽然没有，但可以调用
+        //现在通过bind（this）将Method1的位置改到了mc对象中。
+    </script>
+</body>
+</html>
