@@ -26,8 +26,14 @@
                 super(name,age);
                 this.position=position;
             }
+            //重写父类继承过来的方法
             speak(){
                 console.log(`我的名字叫${this.name}，我今年${this.age}，我的职业是${this.position}`);
+            }
+
+            study(){
+                console.log(this)
+                console.log(`${this.name}在很努力的学习`);
             }
         }
         const jk = new Person('zjk', 34);
@@ -37,6 +43,7 @@
         const dn = new Student('dn', 32, 'student')
         console.log(dn);
         dn.speak();
+        dn.study();
     </script>
 </body>
 
