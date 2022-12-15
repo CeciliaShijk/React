@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script type="text/babel">
+        class Demo extends React.Component{
+            //ref=(x)=>{console.log(x)}:控制台输出的x为该节点 - 即React把当前节点传入回调函数做参数
+            /*因此拿到该节点的方法为：
+            1.将该节点赋值给Demo类的实例 并取名为input1的属性
+            ref={(x)=>{this.input1=x}}
+        则x为真实的DOM节点，赋给了demo的实例对象作为属性值保存*
+    此时 demo的refs为空 直接input1直接加在了该类对象的新属性中*/
+            
+            render() {
+                return (
+                    <div>
+                        
+                        <input type="text" ref={(currentNode)=>{this.input1=currentNode}}/ >
+                        <button onClick={this.show}>点我显示内容</button>
+                        <input type="text" ref={(c)=>this.input2=c} onBlur={this.show2}/>
+                    </div>
+                )
+                
+
+            }
+            show = () => {
+                const{input1}=this
+                    console.log(input1.value);
+                  
+                  
+                }
+                show2=()=>{
+                    //
+                    const{input2}=this
+                    console.log(input2.value);
+                }
+        }
+        ReactDOM.render(<Demo/>,document.getElementById('test'))
+    </script>
+</body>
+
+</html>
